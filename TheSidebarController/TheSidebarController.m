@@ -294,6 +294,10 @@ static const CGFloat kVisibleWidth = 260.0f;
 #pragma mark - UIViewController Setters
 - (void)setContentViewController:(UIViewController *)contentViewController
 {
+    if ([contentViewController class] == [_contentViewController class]) {
+        return;
+    }
+    
     // Old View Controller
     UIViewController *oldViewController = self.contentViewController;
     [oldViewController willMoveToParentViewController:nil];
